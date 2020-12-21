@@ -1,0 +1,39 @@
+﻿<Properties StartupConfiguration="{7484D93F-8221-4C89-A660-54451D035CBB}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="appsettings.json">
+    <Files>
+      <File FileName="WeatherForecast.cs" Line="1" Column="1" />
+      <File FileName="Program.cs" Line="1" Column="1" />
+      <File FileName="Startup.cs" Line="20" Column="31" />
+      <File FileName="protos/Cart.proto" />
+      <File FileName="appsettings.json" Line="1" Column="1" />
+      <File FileName="Dockerfile" Line="19" Column="42" />
+      <File FileName="cartstore/LocalCartStore.cs" />
+      <File FileName="services/CartService.cs" />
+      <File FileName="Properties/launchSettings.json" />
+      <File FileName="Controllers/WeatherForecastController.cs" />
+      <File FileName="cartstore/RedisCartStore.cs" />
+      <File FileName="services/HealthCheckService.cs" />
+      <File FileName=".gitignore" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="cartservice" expanded="True">
+            <Node name="cartservice" expanded="True">
+              <Node name="ConnectedServicesFolder" expanded="True" />
+              <Node name="cartstore" expanded="True" />
+              <Node name="appsettings.json" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.cartservice PreferredExecutionTarget="/Applications/Google Chrome.app" />
+</Properties>

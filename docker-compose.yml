@@ -1,0 +1,96 @@
+version : '3'
+
+services:
+  jaeger:
+    image: jaegertracing/all-in-one:latest
+    ports:
+      - 16686:16686
+      - 6831:6831/udp
+
+  frontend:
+    build: ./frontend
+    ports:
+      - 8081:8081
+    depends_on:
+      - jaeger
+      - currency
+      - cart
+      - productcatlog
+      - recommended
+
+  cart:
+    build: ./cartservice
+    ports:
+      - 7528:7528
+      - 80:80
+    depends_on:
+      - jaeger
+
+  currency:
+    build: ./currencyservice
+    ports:
+      - 9000:9000
+    environment:
+      - JAEGER_AGENT_HOST=jaeger
+      - JAEGER_AGENT_PORT=6831
+    depends_on:
+      - jaeger
+
+  recommended:
+    build: ./recommendationservice
+    ports:
+      - 8080:8080
+    depends_on:
+      - cart
+      - jaeger
+      - currency
+
+  productcatlog:
+    build: ./productcatalogservice
+    ports:
+      - 4000:4000
+    depends_on:
+      - jaeger
+      - cart
+      - recommended
+      - currency
+  
+  checkout:
+    build: ./checkoutservice
+    ports: 
+      - 5050:5050
+    depends_on:
+      - jaeger
+      - frontend
+      - cart
+      - currency
+
+  payment:
+    build: ./paymentservice
+    ports:
+      - 8011:8011
+    environment:
+      - JAEGER_AGENT_HOST=jaeger
+      - JAEGER_AGENT_PORT=6831
+    depends_on:
+      - jaeger
+      - checkout
+      - currency
+
+  shipping:
+    build: ./shippingservice
+    ports:
+      - 50051:50051
+    depends_on:
+      - jaeger
+      - frontend
+      - cart
+      - currency
+      - checkout
+  
+  ad:
+    build: ./adservice
+    ports:
+      - 9555:9555
+    depends_on:
+      - checkout
