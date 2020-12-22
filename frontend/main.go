@@ -214,7 +214,7 @@ func mustMapEnv(target *string, envKey string) {
 		*target = "productcatlog:4000"
 	}
 	if envKey == "CART_SERVICE_ADDR" {
-		*target = "cart:80"
+		*target = "cart:7528"
 	}
 	if envKey == "CHECKOUT_SERVICE_ADDR" {
 		*target = "checkout:5050"

@@ -167,7 +167,7 @@ func mustMapEnv(target *string, envKey string) {
 		panic(fmt.Sprintf("environment variable %q not set", envKey))
 	}*/
 	if envKey == "CART_SERVICE_ADDR" {
-		*target = "cart:80"
+		*target = "cart:7528"
 	}
 	if envKey == "PAYMENT_SERVICE_ADDR" {
 		*target = "payment:8011"
