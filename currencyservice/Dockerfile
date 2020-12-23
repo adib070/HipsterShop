@@ -25,4 +25,4 @@ COPY . .
 
 EXPOSE 9000
 
-CMD node -r ./trace server.js
+CMD node -r ./tracing server.js

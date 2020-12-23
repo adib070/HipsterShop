@@ -25,20 +25,25 @@ spec:
       labels:
         app: payment
     spec:
-      serviceAccountName: default
-      terminationGracePeriodSeconds: 5
       containers:
-      - name: server
-        image: adib070/payment
-        ports:
-        - containerPort: 8011
-        resources:
-          requests:
-            cpu: 100m
-            memory: 64Mi
-          limits:
-            cpu: 200m
-            memory: 128Mi
+        - name: server
+          image: adib070/payment
+          ports:
+            - containerPort: 8011
+          env:
+            - name: PORT
+              value: "8011"
+            - name: JAEGER_AGENT_HOST
+              value: "jaeger"
+            - name: JAEGER_AGENT_PORT
+              value: "6831"
+          resources:
+            requests:
+              cpu: 100m
+              memory: 220Mi
+            limits:
+              cpu: 200m
+              memory: 450Mi
 ---
 apiVersion: v1
 kind: Service
@@ -49,6 +54,6 @@ spec:
   selector:
     app: payment
   ports:
-  - name: grpc
-    port: 8011
-    targetPort: 8011
+    - name: grpc
+      port: 8011
+      targetPort: 8011

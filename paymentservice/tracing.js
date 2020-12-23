@@ -10,8 +10,8 @@ provider.addSpanProcessor(
     new SimpleSpanProcessor(
         new JaegerExporter({
             serviceName: "Payments",
-            JAEGER_AGENT_PORT: 6831,
-            JAEGER_AGENT_HOST: "jaeger",
+            JAEGER_ENDPOINT: "http://jaeger-collector:14268",
+
         })
     )
 );

@@ -12,8 +12,7 @@ const provider = new NodeTracerProvider();
 
 const exporter = new JaegerExporter({
     serviceName: "currency",
-    JAEGER_AGENT_PORT: 6832,
-    JAEGER_AGENT_HOST: "jaeger",
+    JAEGER_ENDPOINT: "jaeger:14250",
     OTEL_PROPOGATOR: JaegerHttpTracePropagator
 });
 
